@@ -37,11 +37,17 @@ public class ProductService implements ProductServiceInterface{
 
         System.out.println("Product added Successfully");
     }
-    @Override
-    public Product findById(int search){
-       int m_index = plist.indexOf(search);
-       return ;
 
+    @Override
+    public Product findById(int search) {
+        Product to_search = new Product(search);
+        int found = plist.indexOf(to_search);
+        if(found!=-1) {
+            Product fo = plist.get(found);
+            return fo;
+        }else{
+            return null;
+        }
     }
 
 

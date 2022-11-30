@@ -1,5 +1,6 @@
 package com.doc.beans;
 
+import java.awt.*;
 import java.util.Objects;
 
 public class Product {
@@ -9,6 +10,12 @@ public class Product {
     private String name;
     private int qty;
     private double price;
+    public Product(int pid){
+        this.pid=pid;
+        this.name=null;
+        this.qty=0;
+        this.price=0.0;
+    }
 
     public Product(int pid, String name, int qty, double price) {
         this.pid = pid;
@@ -50,10 +57,11 @@ public class Product {
     }
 
     @Override
-    public boolean equals(Object o) {
-        Product product = (Product) o;
-        return this.pid==product.pid;
+    public boolean equals(Object o){
+        return pid == ((Product) o).getPid();
     }
+
+
 
     @Override
     public String toString() {

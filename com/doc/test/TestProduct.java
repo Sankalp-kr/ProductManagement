@@ -49,6 +49,7 @@ public class TestProduct {
                     System.out.println("Enter the id that you want the info for: ");
                     int search = ins.nextInt();
                     Product found = ts.findById(search);
+                    
                     if(found==null)
                         System.out.println("Not found.");
                     else
