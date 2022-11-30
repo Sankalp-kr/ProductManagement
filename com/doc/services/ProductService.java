@@ -1,9 +1,14 @@
 package com.doc.services;
 
 import com.doc.beans.Product;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import static java.util.Collections.sort;
+
 public class ProductService implements ProductServiceInterface{
 
     Scanner ins = new Scanner(System.in);
@@ -55,7 +60,6 @@ public class ProductService implements ProductServiceInterface{
         for(Product test:plist){
             if(test.getName().equals(pname))
                 return test;
-
         }
         return null;
     }
@@ -74,4 +78,33 @@ public class ProductService implements ProductServiceInterface{
             else return null;
         }
     }
+
+
+    @Override
+    public Product removeByName(String search_string) {
+        for(Product test: plist){
+            if(test.getName().equals(search_string)) {
+                System.out.println("Object found, Are you sure you want to delete the object:: y/n ");
+                String confirm = ins.nextLine();
+                if(confirm.charAt(0)=='y')
+                    return test;
+                else{
+                    return null;
+                }
+            }
+        }
+        return null;
+    }
+
+
+    @Override
+    public void changePrice(Product prdt,Double new_price) {
+        prdt.setPrice(new_price);
+    }
+
+//    @Override
+//    public ArrayList<Product> SortByPrice() {
+//        List<Product> retthis = new ArrayList<>();
+//        .sort(plist);
+//    }
 }

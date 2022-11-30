@@ -3,7 +3,7 @@ package com.doc.beans;
 import java.awt.*;
 import java.util.Objects;
 
-public class Product {
+public class Product implements Comparable<Product> {
 
     //id,name,qty,price
     private int pid;
@@ -62,7 +62,6 @@ public class Product {
     }
 
 
-
     @Override
     public String toString() {
         return "Product{" +
@@ -71,5 +70,14 @@ public class Product {
                 ", qty=" + qty +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        if(o.getPrice()<this.price)
+            return 1;
+        else if(o.getPrice()>this.price)
+            return -1;
+        else return 0;
     }
 }
