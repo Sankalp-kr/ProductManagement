@@ -13,11 +13,11 @@ public class ProductService implements ProductServiceInterface{
     static{
         plist = new ArrayList<>(5);
         plist.add(new Product(1,"Parle G",1000,10.0));
-        plist.add(new Product(1,"Parle A",10,9.0));
-        plist.add(new Product(1,"Parle B",103,11.0));
-        plist.add(new Product(1,"Parle C",1002,13.0));
-        plist.add(new Product(1,"Parle D",1010,14.0));
-        plist.add(new Product(1,"Parle E",1022,12.0));
+        plist.add(new Product(2,"Parle A",10,9.0));
+        plist.add(new Product(3,"Parle B",103,11.0));
+        plist.add(new Product(4,"Parle C",1002,13.0));
+        plist.add(new Product(5,"Parle D",1010,14.0));
+        plist.add(new Product(6,"Parle E",1022,12.0));
 
     }
     @Override
@@ -25,6 +25,7 @@ public class ProductService implements ProductServiceInterface{
         System.out.println("Enter the id of the product: ");
         int pid = ins.nextInt();
         System.out.println("Enter the name of the product: ");
+        ins.nextLine();
         String name = ins.nextLine();
         System.out.println("Enter the quantity of the product: ");
         int pqty= ins.nextInt();
@@ -35,6 +36,12 @@ public class ProductService implements ProductServiceInterface{
         System.out.println();
 
         System.out.println("Product added Successfully");
+    }
+    @Override
+    public Product findById(int search){
+       int m_index = plist.indexOf(search);
+       return ;
+
     }
 
 

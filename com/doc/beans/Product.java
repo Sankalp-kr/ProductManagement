@@ -1,5 +1,7 @@
 package com.doc.beans;
 
+import java.util.Objects;
+
 public class Product {
 
     //id,name,qty,price
@@ -45,6 +47,12 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Product product = (Product) o;
+        return this.pid==product.pid;
     }
 
     @Override

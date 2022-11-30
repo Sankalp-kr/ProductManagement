@@ -13,6 +13,13 @@ public class TestProduct {
         int choice=99;
         ProductServiceInterface ts = new ProductService();
 
+         /*
+         //printing all values of the array
+         for(Product test: ProductService.plist) {
+            System.out.println(test);
+        }
+        */
+
         do{
             System.out.println("Enter the choice: ");
             System.out.println("1.create new product\n 2.remove by id \n3. remove by name \n4.Disaplay all \n5.find by id \n6. sort by price ");
@@ -25,6 +32,29 @@ public class TestProduct {
                     // parameters of the Product is not entered here as the parameters may
                     // change in the future and we want main to be as much untouched later as possible
                     ts.addProduct();
+
+                    System.out.println("Here is the updated list..");
+
+
+                    break;
+                case 4:
+                    System.out.println("Displaying all values of the array: ");
+
+                    for(Product test: ProductService.plist) {
+                        System.out.println(test);
+                    }
+
+                    break;
+                case 5:
+                    System.out.println("Enter the id that you want the info for: ");
+                    int search = ins.nextInt();
+                    Product found = ts.findById(search);
+                    if(found==null)
+                        System.out.println("Not found.");
+                    else
+                        System.out.println(found);
+
+
                     break;
             }
 
