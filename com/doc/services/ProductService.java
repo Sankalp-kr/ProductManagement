@@ -50,5 +50,28 @@ public class ProductService implements ProductServiceInterface{
         }
     }
 
+    @Override
+    public Product findProductByName(String pname) {
+        for(Product test:plist){
+            if(test.getName().equals(pname))
+                return test;
 
+        }
+        return null;
+    }
+
+    @Override
+    public Product removeById(int search_id) {
+        Product s_id_product = new Product(search_id);
+        int remove_this = plist.indexOf(s_id_product);
+        if(remove_this==-1)
+            return null;
+        else{
+            System.out.println("Are you sure you want to remove this:: 'y/n': ");
+            String choose = ins.next();
+            if(choose.charAt(0)=='y')
+                return plist.get(remove_this);
+            else return null;
+        }
+    }
 }

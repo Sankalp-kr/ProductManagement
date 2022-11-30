@@ -37,19 +37,29 @@ public class TestProduct {
 
 
                     break;
+
+                case 2:
+                    System.out.println("Enter the id of the product: ");
+                    int search_id = ins.nextInt();
+                    Product remove_this = ts.removeById(search_id);
+                    ((ProductService)ts).plist.remove(remove_this);
+
+                    break;
                 case 4:
                     System.out.println("Displaying all values of the array: ");
 
-                    for(Product test: ProductService.plist) {
+                    for(Product test: ((ProductService)ts).plist) {
                         System.out.println(test);
                     }
 
                     break;
+
+
                 case 5:
                     System.out.println("Enter the id that you want the info for: ");
                     int search = ins.nextInt();
                     Product found = ts.findById(search);
-                    
+
                     if(found==null)
                         System.out.println("Not found.");
                     else
@@ -57,6 +67,18 @@ public class TestProduct {
 
 
                     break;
+
+                case 9:
+                    System.out.println("Enter the name of product: ");
+                    ins.nextLine();
+                    String pname = ins.nextLine();
+                    Product ProductName = ts.findProductByName(pname);
+                    System.out.println(ProductName);
+
+                    break;
+
+                case 10:
+                    System.out.println("Thank you for using the application: ");
             }
 
         }while(choice!=10);
